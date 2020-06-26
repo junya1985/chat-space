@@ -50,9 +50,9 @@ has_many :messages
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|-------|
+|body|text|----|
 |image|string|----|
-|user_id|integer|ull: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
