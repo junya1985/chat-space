@@ -68,6 +68,7 @@ create_table :messages do |t|
 
 ## groups_usersテーブル
 |Column|Type|Options|
+|------|----|-------|
 |user_id => user|nmber|null: false, foreign_key: true|
 |group_id => group|nmber|ull: false, foreign_key: true|
 
