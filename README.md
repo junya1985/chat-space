@@ -52,6 +52,8 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|----|
 |image|string|----|
+|user_id => user|nmber|null: false, foreign_key: true|
+|group_id => group|nmber|null: false, foreign_key: true|
 
 create_table :messages do |t|
       t.references :user_id => user, null: false, foreign_key: true,
@@ -65,6 +67,10 @@ create_table :messages do |t|
 
 
 ## groups_usersテーブル
+|Column|Type|Options|
+|user_id => user|nmber|null: false, foreign_key: true|
+|group_id => group|nmber|ull: false, foreign_key: true|
+
 create_table : groups_users do |t|
       t.references :user_id => user, null: false, foreign_key: true,
       t.references :group_id => group, null: false, foreign_key: true
