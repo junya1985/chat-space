@@ -38,7 +38,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :groups_users
@@ -52,18 +52,25 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|----|
 |image|string|----|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
 
+create_table :messages do |t|
+      t.references :user_id => user, null: false, foreign_key: true,
+      t.references :group_id => group, null: false, foreign_key: true
+    end
+
+  
 ### Association
 - belongs_to :group
 - belongs_to :user
 
 
 ## groups_usersテーブル
-|Column|Type|Options|
-|user_id|integer|null: false, foreign_key: true|
-|group_id |integer|null: false, foreign_key: true
+create_table : groups_users do |t|
+      t.references :user_id => user, null: false, foreign_key: true,
+      t.references :group_id => group, null: false, foreign_key: true
+
+
 ##Association|
 - belongs_to :group
 - belongs_to :user
+
