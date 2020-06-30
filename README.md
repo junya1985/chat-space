@@ -26,12 +26,12 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index: true|
+|name|string|null: false, index: true|
 |email|string| null: false, unique: true|
 
 ### Association
 - has_many :groups_users
-- has_many :groups, through: groups_users
+- has_many :groups, through: :groups_users
 - has_many :messages
 
 
@@ -42,7 +42,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :groups_users
-- has_many :users, through: groups_users
+- has_many :users, through: :groups_users
 - has_many :messages
 
 
@@ -52,14 +52,8 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|----|
 |image|string|----|
-|user_id => user|nmber|null: false, foreign_key: true|
-|group_id => group|nmber|null: false, foreign_key: true|
-
-create_table :messages do |t|
-      t.references :user_id => user, null: false, foreign_key: true,
-      t.references :group_id => group, null: false, foreign_key: true
-    end
-
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
   
 ### Association
 - belongs_to :group
@@ -69,12 +63,8 @@ create_table :messages do |t|
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id => user|nmber|null: false, foreign_key: true|
-|group_id => group|nmber|ull: false, foreign_key: true|
-
-create_table : groups_users do |t|
-      t.references :user_id => user, null: false, foreign_key: true,
-      t.references :group_id => group, null: false, foreign_key: true
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 
 ##Association|
